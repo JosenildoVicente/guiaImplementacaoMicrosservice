@@ -1,18 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule }   from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ClientesComponent } from './clientes.component';
+import { ClienteService } from './cliente.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'clientes',
+        component: ClientesComponent
+      }
+    ])
   ],
-  providers: [],
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

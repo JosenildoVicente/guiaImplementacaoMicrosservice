@@ -1,0 +1,35 @@
+<html (mousemove)="onMove()">
+
+<table>
+<tr>
+   <td><label>Nome </label></td>
+   <td><input [(ngModel)]="cliente.nome" ></td>
+   <td><button (click)="criarCliente(cliente)">Adicionar</button></td>
+</tr>
+<tr>
+   <td><label>CPF </label></td>
+   <td><input [(ngModel)]="cliente.cpf" ></td>
+   <td *ngIf="cpfduplicado">
+     Já existe um cliente com esse CPF
+   </td>
+</tr>
+<tr>
+   <td><label>e-mail </label></td>
+   <td><input [(ngModel)]="cliente.email" ></td>
+</tr>
+</table>
+
+<table>
+<tr *ngIf="clientes.length > 0">
+   <th>Nome</th>
+   <th>CPF</th>
+   <th>e-mail</th>
+</tr>
+<tr *ngFor="let c of clientes">
+   <td>{{c.nome}}</td>
+   <td>{{c.cpf}}</td>
+   <td>{{c.email}}</td>
+</tr>
+</table>
+
+</html>
